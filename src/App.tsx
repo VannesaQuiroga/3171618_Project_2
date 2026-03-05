@@ -3,7 +3,7 @@ import { TourPackage } from './types';
 import { Header } from './components/Header';
 import { ItemForm } from './components/ItemForm';
 import { ItemList } from './components/ItemList';
-
+import './styles/App.css';
 function App() {
   const [packages, setPackages] = useState<TourPackage[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
