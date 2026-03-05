@@ -84,21 +84,21 @@ export const ItemForm = ({
         onChange={handleChange}
       />
 
-      <input
-        name="price"
-        type="number"
-        placeholder="Precio"
-        value={formData.price}
-        onChange={handleChange}
-      />
+          <input
+      name="price"
+      type="number"
+      placeholder="Precio"
+      value={formData.price || ''}
+      onChange={handleChange}
+    />
 
-      <input
-        name="durationDays"
-        type="number"
-        placeholder="Duración"
-        value={formData.durationDays}
-        onChange={handleChange}
-      />
+    <input
+      name="durationDays"
+      type="number"
+      placeholder="Duración"
+      value={formData.durationDays || ''}
+      onChange={handleChange}
+    />
 
       <label>
         Disponible
@@ -113,6 +113,23 @@ export const ItemForm = ({
       <button type="submit">
         {editingId ? 'Actualizar' : 'Agregar'}
       </button>
+      {editingId && (
+  <button
+    type="button"
+    onClick={() => {
+      setFormData({
+        id: 0,
+        title: '',
+        destination: '',
+        price: 0,
+        durationDays: 0,
+        available: true,
+      });
+    }}
+  >
+    Cancelar
+  </button>
+)}
     </form>
   );
 };
